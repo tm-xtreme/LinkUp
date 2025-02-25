@@ -125,4 +125,4 @@ function showAlert(message, type = 'error') {
   alert.textContent = message;
   alertContainer.appendChild(alert);
   setTimeout(() => alert.remove(), 3000);
-                }
+}
