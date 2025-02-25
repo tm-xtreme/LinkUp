@@ -1,89 +1,139 @@
-/* General Reset */
-* {
+body, html {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Body and background */
-body {
   background-color: #f4f6f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
 }
 
-/* Dashboard container */
-.dashboard-container {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.container {
   width: 100%;
-  max-width: 400px;
-}
-
-/* Heading */
-.dashboard-container h1 {
-  font-size: 28px;
-  font-weight: bold;
-  color: #3b5998;
-  margin-bottom: 20px;
-}
-
-/* User details section */
-#user-details {
-  margin-top: 30px;
-  background-color: #f9f9f9;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-#user-details h3 {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+header .logo {
   font-size: 24px;
-  color: #333;
-  margin-bottom: 10px;
+  font-weight: bold;
 }
 
-/* User image styling */
-#user-photo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-bottom: 20px;
-  object-fit: cover;
-  border: 3px solid #3b5998;
-}
-
-/* User name and email styling */
-#user-name, #user-email {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-/* Logout button */
-#logout-btn {
-  background-color: #3b5998;
-  color: #fff;
+button {
+  padding: 8px 16px;
   font-size: 16px;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+main {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-photo {
+  flex: 1;
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-info {
+  flex: 3;
+  margin-left: 20px;
+}
+
+.profile-info h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.profile-info p {
+  font-size: 16px;
+}
+
+.profile-section {
+  margin-top: 20px;
+}
+
+.profile-section h3 {
+  margin-bottom: 10px;
+}
+
+.profile-section form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+#email-verification-status-edit {
+  margin-top: 5px;
+  color: #dc3545;
+}
+
+.alert {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #f8d7da;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert.success {
+  background-color: #d4edda;
+}
+
+.alert button {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#logout-btn {
+  background-color: #dc3545;
+  padding: 10px 20px;
 }
 
 #logout-btn:hover {
-  background-color: #2d4373;
+  background-color: #c82333;
 }
 
-#logout-btn:focus {
-  outline: none;
+button#edit-profile-btn {
+  background-color: #007bff;
+}
+
+button#edit-profile-btn:hover {
+  background-color: #0056b3;
 }
