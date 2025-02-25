@@ -16,11 +16,15 @@
     <main>
       <div class="profile-header">
         <div class="profile-photo">
-          <img id="user-photo" src="" alt="User Photo" />
+          <img id="user-photo" src="default-profile.png" alt="User Photo" />
         </div>
         <div class="profile-info">
           <h2 id="user-name"></h2>
-          <p><strong>Email:</strong> <span id="user-email"></span> <span id="email-verification-status"></span></p>
+          <p>
+            <strong>Email:</strong> <span id="user-email"></span> 
+            <span id="email-verification-status"></span> 
+            <button id="verify-email-btn" style="display: none;">Verify Email</button>
+          </p>
           <p><strong>Username:</strong> <span id="user-username"></span></p>
           <p><strong>Phone:</strong> <span id="user-phone"></span></p>
           <button id="edit-profile-btn">Edit Profile</button>
@@ -37,24 +41,24 @@
         <h2>Edit Profile</h2>
         <form id="update-profile-form">
           <div class="form-group">
-            <label for="user-name">Full Name</label>
+            <label for="user-name-edit">Full Name</label>
             <input type="text" id="user-name-edit" required />
           </div>
           <div class="form-group">
-            <label for="user-username">Username</label>
+            <label for="user-username-edit">Username</label>
             <input type="text" id="user-username-edit" required />
           </div>
           <div class="form-group">
-            <label for="user-email">Email</label>
+            <label for="user-email-edit">Email</label>
             <input type="email" id="user-email-edit" required />
             <div id="email-verification-status-edit"></div>
           </div>
           <div class="form-group">
-            <label for="user-phone">Phone</label>
+            <label for="user-phone-edit">Phone</label>
             <input type="text" id="user-phone-edit" />
           </div>
           <div class="form-group">
-            <label for="user-bio">Bio</label>
+            <label for="user-bio-edit">Bio</label>
             <textarea id="user-bio-edit"></textarea>
           </div>
           <div class="form-group">
@@ -62,6 +66,7 @@
             <input type="file" id="profile-photo" />
           </div>
           <button type="submit">Save Changes</button>
+          <button type="button" id="cancel-edit-btn">Cancel</button>
         </form>
       </div>
     </main>
@@ -70,6 +75,6 @@
   </div>
 
   <script src="authFirebase.js" type="module"></script>
-  <script src="dashboard.js" type="module"></script>
+  <script src="update.js" type="module"></script>
 </body>
 </html>
