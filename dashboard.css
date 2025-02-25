@@ -1,0 +1,89 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body and background */
+body {
+  background-color: #f4f6f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+/* Dashboard container */
+.dashboard-container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Heading */
+.dashboard-container h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #3b5998;
+  margin-bottom: 20px;
+}
+
+/* User details section */
+#user-details {
+  margin-top: 30px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+#user-details h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* User image styling */
+#user-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  border: 3px solid #3b5998;
+}
+
+/* User name and email styling */
+#user-name, #user-email {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Logout button */
+#logout-btn {
+  background-color: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#logout-btn:hover {
+  background-color: #2d4373;
+}
+
+#logout-btn:focus {
+  outline: none;
+}

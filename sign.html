@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <meta charset="UTF-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    
+    <title>Authentication | Firebase</title>    
+    <link rel="stylesheet" href="sign.css" />    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">    
+</head>    
+<body>    
+    <div class="container">    
+        <div class="row justify-content-center">    
+            <div class="col-md-6">
+                <!-- Login Form -->    
+                <div class="auth_container" id="login-container">    
+                    <h3>Continue with</h3>    
+                    <button id="google-signin-btn">    
+                        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png" alt="Google" />    
+                        Google    
+                    </button>    
+                    <p>or</p>    
+                    <form id="login-form">    
+                        <label for="login-email">Email or Username</label>    
+                        <input type="text" id="login-email" placeholder="Email or Username" required />  
+                        
+                        <label for="login-password">Password</label>    
+                        <div class="password-container">    
+                            <input type="password" id="login-password" placeholder="Password" required />    
+                            <i class="fa-solid fa-eye toggle-password" data-target="login-password"></i>    
+                        </div>    
+                        <small class="error-message" id="login-password-error"></small>    
+
+                        <button type="submit">Log In</button>    
+                    </form>    
+                    <a href="#" id="forgot-password-link">Forgot Password?</a>    
+                    <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>    
+                </div>    
+
+                <!-- Sign Up Form -->    
+                <div class="auth_container" id="signup-container" style="display: none;">    
+                    <h3>Sign Up with</h3>    
+                    <button id="google-signup-btn">    
+                        <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png" alt="Google" />    
+                        Google    
+                    </button>    
+                    <p>or</p>    
+                    <form id="signup-form">    
+                        <label for="full-name">Full Name</label>    
+                        <input type="text" id="full-name" placeholder="Full Name" required />    
+                        <label for="username">Username</label>    
+                        <input type="text" id="username" placeholder="Username" required />    
+                        <label for="email">Email</label>    
+                        <input type="email" id="email" placeholder="Email" required />    
+                        <label for="phone">Phone</label>    
+                        <input type="tel" id="phone" placeholder="Phone" required />    
+
+                        <label for="password">Password</label>    
+                        <div class="password-container">    
+                            <input type="password" id="password" placeholder="Password" required />    
+                            <i class="fa-solid fa-eye toggle-password" data-target="password"></i>    
+                        </div>    
+                        <small class="error-message" id="password-error"></small>    
+
+                        <label for="confirm-password">Confirm Password</label>    
+                        <div class="password-container">    
+                            <input type="password" id="confirm-password" placeholder="Confirm Password" required />    
+                            <i class="fa-solid fa-eye toggle-password" data-target="confirm-password"></i>    
+                        </div>    
+                        <small class="error-message" id="confirm-password-error"></small>    
+
+                        <button type="submit">Sign Up</button>    
+                    </form>    
+                    <p>Already have an account? <a href="#" id="login-link">Log in</a></p>    
+                </div>    
+
+                <!-- Forgot Password Form -->    
+                <div class="auth_container" id="forgot-password-container" style="display: none;">    
+                    <h3>Reset Password</h3>    
+                    <form id="reset-password-form">    
+                        <label for="reset-email">Enter your email</label>    
+                        <input type="email" id="reset-email" placeholder="Email" required />    
+                        <button type="submit">Send Reset Link</button>    
+                    </form>    
+                    <p>Remembered? <a href="#" id="login-link-forgot">Log in</a></p>    
+                </div>    
+
+                <!-- Alert Messages -->    
+                <div id="alert-container"></div>    
+
+            </div>    
+        </div>    
+    </div>    
+    <script type="module" src="authFirebase.js"></script>    
+    <script type="module" src="script.js"></script>    
+</body>    
+</html>
