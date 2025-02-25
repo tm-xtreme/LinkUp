@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { 
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
-  sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider, sendEmailVerification, updateProfile, onAuthStateChanged
+  sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider, sendEmailVerification, updateProfile
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
 import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
@@ -21,13 +21,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
 const storage = getStorage(app);
-
-// ✅ Check if User is Already Logged In
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    window.location.href = "dashboard.html"; // Redirect to dashboard if user is logged in
-  }
-});
 
 // ✅ Function to Show Stylish Alerts (Removes "Firebase:" Prefix)
 function showAlert(message, type = "error") {
