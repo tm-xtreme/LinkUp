@@ -3,24 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Dashboard</title>
+  <title>LinkUp - User Dashboard</title>
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
-  <div class="dashboard-container">
-    <h1>Welcome to your Dashboard</h1>
-
-    <!-- User details section -->
-    <div id="user-details">
-      <h3>User Details</h3>
-      <img id="user-photo" src="" alt="User Photo" />
-      <p id="user-name"></p>
-      <p id="user-email"></p>
+  <div class="container">
+    <header>
+      <div class="logo">LinkUp</div>
       <button id="logout-btn">Logout</button>
-    </div>
+    </header>
+
+    <main>
+      <div class="profile-header">
+        <div class="profile-photo">
+          <img id="user-photo" src="" alt="User Photo" />
+        </div>
+        <div class="profile-info">
+          <h2 id="user-name"></h2>
+          <p><strong>Email:</strong> <span id="user-email"></span> <span id="email-verification-status"></span></p>
+          <p><strong>Username:</strong> <span id="user-username"></span></p>
+          <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+          <button id="edit-profile-btn">Edit Profile</button>
+        </div>
+      </div>
+
+      <!-- Toggle Between View and Edit -->
+      <div id="profile-view" class="profile-section">
+        <h3>Bio</h3>
+        <p id="user-bio"></p>
+      </div>
+
+      <div id="edit-profile" class="profile-section" style="display: none;">
+        <h2>Edit Profile</h2>
+        <form id="update-profile-form">
+          <div class="form-group">
+            <label for="user-name">Full Name</label>
+            <input type="text" id="user-name-edit" required />
+          </div>
+          <div class="form-group">
+            <label for="user-username">Username</label>
+            <input type="text" id="user-username-edit" required />
+          </div>
+          <div class="form-group">
+            <label for="user-email">Email</label>
+            <input type="email" id="user-email-edit" required />
+            <div id="email-verification-status-edit"></div>
+          </div>
+          <div class="form-group">
+            <label for="user-phone">Phone</label>
+            <input type="text" id="user-phone-edit" />
+          </div>
+          <div class="form-group">
+            <label for="user-bio">Bio</label>
+            <textarea id="user-bio-edit"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="profile-photo">Profile Photo</label>
+            <input type="file" id="profile-photo" />
+          </div>
+          <button type="submit">Save Changes</button>
+        </form>
+      </div>
+    </main>
+
+    <div id="alert-container"></div>
   </div>
 
-  <script src="authFirebase.js"></script> <!-- Firebase auth functionality -->
-  <script src="dashboard.js"></script> <!-- Dashboard interface functionality -->
+  <script src="authFirebase.js" type="module"></script>
+  <script src="dashboard.js" type="module"></script>
 </body>
 </html>
