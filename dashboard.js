@@ -42,7 +42,7 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     loadUserData(user.uid);
   } else {
-    window.location.href = "sign.html"; // Redirect if not logged in
+    window.location.href = "login"; // Redirect if not logged in
   }
 });
 
@@ -104,7 +104,7 @@ document.getElementById('update-profile-form').addEventListener('submit', (e) =>
 document.getElementById('logout-btn').addEventListener('click', () => {
   signOut(auth)
     .then(() => {
-      window.location.href = 'login.html';
+      window.location.href = 'login';
     })
     .catch((error) => {
       alert('Logout Error: ' + error.message);
