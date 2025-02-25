@@ -94,11 +94,14 @@ body {
   position: relative;
   width: 100%;
 }
+.password-container i {
+  margin: 4px 10px 0 0;
+  opacity: 0.2;
+}
 
 .password-container input {
   width: 100%;
-  margin-top: 15px;
-  padding-right: 40px; /* Space for the eye icon */
+  padding-right: 45px; /* Space for the eye icon */
 }
 
 .password-container .toggle-password {
