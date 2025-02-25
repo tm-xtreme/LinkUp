@@ -1,10 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
 import { 
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, 
-  sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider 
+  sendPasswordResetEmail, signInWithPopup, GoogleAuthProvider, sendEmailVerification, updateProfile, onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-
-import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getDatabase, ref, set, get, update } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js";
 
 // ✅ Firebase Configuration
 const firebaseConfig = {
@@ -20,6 +20,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getDatabase(app);
+const storage = getStorage(app);
+
+// ✅ Check if User is Already Logged In
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    window.location.href = "dashboard.html"; // Redirect to dashboard if user is logged in
+  }
+});
 
 // ✅ Function to Show Stylish Alerts (Removes "Firebase:" Prefix)
 function showAlert(message, type = "error") {
@@ -159,4 +167,35 @@ export function resetPassword(email) {
     .catch((error) => {
       showAlert(error.message);
     });
+}
+
+// ✅ Update User Profile Data
+export async function updateUserProfile(userId, userData) {
+  const userRef = ref(db, `users/${userId}`);
+  await update(userRef, userData);
+}
+
+// ✅ Upload and update user profile picture
+export async function uploadProfilePhoto(file) {
+  const user = auth.currentUser;
+  if (!user) return;
+
+  const fileRef = storageRef(storage, `profile_photos/${user.uid}`);
+  await uploadBytes(fileRef, file);
+  const downloadURL = await getDownloadURL(fileRef);
+
+  // Update user profile picture in database
+  await updateUserProfile(user.uid, { photoURL: downloadURL });
+  return downloadURL;
+}
+
+// ✅ Verify Email
+export async function verifyEmail() {
+  const user = auth.currentUser;
+  if (user && !user.emailVerified) {
+    await sendEmailVerification(user);
+    showAlert("Verification email sent! Check your inbox.", "success");
+  } else {
+    showAlert("Email already verified.", "success");
+  }
 }
